@@ -1,0 +1,90 @@
+
+/* Import Proxima Nova fonts */
+@font-face {
+    font-family: 'Proxima Nova Light';
+    src: url('./assets/fonts/Mark-Simonson-Proxima-Nova-Light.otf') format('opentype');
+    /* Add additional src for other file formats if needed */
+}
+
+@font-face {
+    font-family: 'Proxima Nova Regular';
+    src: url('./assets/fonts/Mark-Simonson-Proxima-Nova-Regular.otf') format('opentype');
+    /* Add additional src for other file formats if needed */
+}
+
+@font-face {
+    font-family: 'Proxima Nova Bold';
+    src: url('./assets/fonts/Mark-Simonson-Proxima-Nova-Bold.otf') format('opentype');
+    /* Add additional src for other file formats if needed */
+}
+
+@font-face {
+    font-family: 'Proxima Nova Semibold';
+    src: url('./assets/fonts/Mark-Simonson-Proxima-Nova-Bold.otf') format('opentype');
+    /* Add additional src for other file formats if needed */
+}
+@font-face {
+    font-family: 'Proxima Nova Extrabold';
+    src: url('./assets/fonts/Mark-Simonson-Proxima-Nova-Semibold.otf') format('opentype');
+    /* Add additional src for other file formats if needed */
+}
+
+@font-face {
+    font-family: 'Proxima Nova Extrabold';
+    src: url('./assets/fonts/Mark-Simonson-Proxima-Nova-Extrabold.otf') format('opentype');
+    /* Add additional src for other file formats if needed */
+}
+
+body{
+    background-color: #F3F4F7;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+/* .container {
+    max-width: 390px !important;
+    padding: 0 !important;
+    background: #ffffff;
+
+} */
+
+.custom-shape-divider-bottom-1711346110 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.custom-shape-divider-bottom-1711346110 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    /* height: 41px; */
+}
+.custom-shape-divider-bottom-1711346110 .shape-fill {
+    fill: #ffff;
+}
+
+.custom-modla .modal-header .btn-close{
+border: 2px solid #000;
+}
+.custom-modla .modal-header{
+border-bottom: none;
+}
+
+
+

@@ -1,0 +1,53 @@
+.settingWrapper{
+    padding: 30px;
+    height: 100vh;
+}
+.maainContent{
+    border-radius: 10px;
+    padding: 30px;
+    background: #fff;
+}
+.subHeading{
+    font-size: 22px;
+    color: #000;
+    line-height: 29px;
+    margin-bottom: 30px;
+}
+
+.topText{
+color: #BDBFC6;
+font-size: 20px;
+line-height: 28px;
+padding-left: 70px;
+padding-bottom: 20px;
+margin-bottom: 0;
+border-bottom: 1px solid #bdbfc66b;
+}
+.settingServer{
+    border-bottom: 1px solid #bdbfc66b; 
+}
+.mainText{
+    color: #9a9ba1;
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 0;
+}
+.Icon{
+    width: 50px;
+}
+.subText{
+    color: #BDBFC6;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 0;
+}
+
+.CustomButton{
+        border: none;
+        border-radius: 20px;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 20px;
+        height: 40px;
+}

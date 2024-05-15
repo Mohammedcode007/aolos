@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.093d5fbb.css",
+    "main.js": "/static/js/main.ef98e464.js",
+    "static/media/Mark-Simonson-Proxima-Nova-Bold.otf": "/static/media/Mark-Simonson-Proxima-Nova-Bold.fcaab2524c5baabd71f6.otf",
+    "static/media/Mark-Simonson-Proxima-Nova-Extrabold.otf": "/static/media/Mark-Simonson-Proxima-Nova-Extrabold.53156c585a42e6a1382d.otf",
+    "static/media/Mark-Simonson-Proxima-Nova-Regular.otf": "/static/media/Mark-Simonson-Proxima-Nova-Regular.ea03f826587148b7335d.otf",
+    "static/media/Mark-Simonson-Proxima-Nova-Light.otf": "/static/media/Mark-Simonson-Proxima-Nova-Light.b8f9455227f8fd5d6af5.otf",
+    "static/media/Mark-Simonson-Proxima-Nova-Semibold.otf": "/static/media/Mark-Simonson-Proxima-Nova-Semibold.815823c606e8fb5e1338.otf",
+    "static/media/profile-img.png": "/static/media/profile-img.73a42a486b6a507eb6fc.png",
+    "static/media/credit-card.svg": "/static/media/credit-card.cbd156b1830317f584fe5681637579f3.svg",
+    "static/media/lock-payment.svg": "/static/media/lock-payment.3342db464ba3fabae623135c766babec.svg",
+    "static/media/email.svg": "/static/media/email.5feacfc33bc893b6e4806788de850e4b.svg",
+    "index.html": "/index.html",
+    "static/media/label.svg": "/static/media/label.25bf29795f99b9d9ef76dea7f22d60b2.svg",
+    "main.093d5fbb.css.map": "/static/css/main.093d5fbb.css.map",
+    "main.ef98e464.js.map": "/static/js/main.ef98e464.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.093d5fbb.css",
+    "static/js/main.ef98e464.js"
+  ]
+}

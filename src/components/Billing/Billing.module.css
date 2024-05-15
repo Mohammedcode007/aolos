@@ -1,0 +1,58 @@
+.Billing{
+    padding-bottom: 30px;
+    padding-top: 20px;
+    background: #F3F4F7;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/* .Billing::before{
+    content: "";
+    position: absolute;
+background: #F3F4F7 ;
+left: -45px;
+right: -35px;
+top: 0;
+bottom: 0;
+} */
+
+.btnAdd{
+    background: #fff;
+    min-width: 60px;
+    font-size: 17px;
+    line-height: 20px;
+    border-radius: 20px;
+}
+.btnAdd:hover{
+    background: #fff;
+
+}
+.paymentText{
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.recordWrapper{
+    background-color: #fff;
+    border-radius: 8px;
+    min-height: 300px;
+
+}
+.recordWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fileNmae{
+    font-size: 20px;
+    line-height: 40px;
+    margin-bottom: 0;
+}
+.fileMsg{
+    color: #979ca5;
+    font-size: 16px;
+    line-height: 25px;
+}

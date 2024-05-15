@@ -1,0 +1,80 @@
+/* Login.module.css */
+
+.loginContainer {
+    max-width: 400px;
+    margin:  100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.loginContainer h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.formGroup {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.loginButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.loginButton:hover {
+    background-color: #0056b3;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.signupButton,
+.forgotPasswordButton {
+    width: calc(50% - 5px); /* Adjust width as needed */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #007bff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.signupButton {
+    margin-right: 5px; /* Adjust gap between buttons */
+}
+
+.forgotPasswordButton {
+    margin-left: 18px; /* Adjust gap between buttons */
+}
+
+.signupButton:hover,
+.forgotPasswordButton:hover {
+    color: #0056b3;
+}

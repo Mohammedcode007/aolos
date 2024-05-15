@@ -1,0 +1,82 @@
+.gameCard {
+    width: 300px;
+    min-height: 375px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background: #fff;
+    position: relative;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.topSection {
+    border: 1px solid #ccc;
+    height: 200px;
+    width: 250px;
+    margin: 0 auto 10px  auto;
+}
+.CustomButton{
+    min-width: 155px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(109.6deg, rgb(187, 0, 212) 11.2%, rgb(32, 38, 238) 91.1%);
+        border: none;
+        border-radius: 20px;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 20px;
+        height: 40px;
+}
+
+.gameImage {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #0000;
+    object-fit: cover;
+}
+
+.bottomSection {
+    padding: 10px;
+}
+
+.heading {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.link {
+    color: blue;
+    text-decoration: none;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.description {
+    margin-bottom: 10px;
+    color: #999696;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.price {
+    font-weight: 500;
+    font-size: 16px;
+
+}
+
+.Gamewrapper{
+    border: 2px solid #000;
+    width: 200px;
+    margin: 0 auto;
+}
+.Gamewrapper .imgBox img{
+   width: 150px;
+}
+.Gamewrapper .contentBox{
+    border-top: 2px solid #000;
+}

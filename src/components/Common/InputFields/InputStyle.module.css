@@ -1,0 +1,86 @@
+.inputLabel {
+  font-size: 20px;
+  color: #1d1e2c;
+  line-height: 1.5;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.inputStyling {
+  background-color: #ffffff;
+  color: #565656;
+  height: 48px;
+  border: none;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
+.inputStylingDate{
+  background-color: #ffffff;
+  color: #565656;
+  height: 48px;
+  border: none;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-left: 15px;
+  padding: 15px;
+}
+.FormDate{
+  display: flex;
+  justify-content: space-around;
+}
+
+.inputWrapper {
+
+  padding: 0 12px;
+  background-color: #ffffff;
+  /* border: 2px solid #1d1e2c; */
+  border-radius: 12px;
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  align-items: center;
+}
+
+.inputStyling:focus {
+  border-color: #64b431;
+  outline: none;
+  box-shadow: none;
+  color: #64b431;
+}
+/* .inputStyling::placeholder {
+  color: #1D1E2C4D;
+} */
+.eyeIcon {
+  position: absolute;
+  font-size: 20px;
+  top: 43px;
+  right: 9px;
+  cursor: pointer;
+  color: #1d1e2c4d;
+}
+@media only screen and (max-width: 1500px) {
+  .inputStyling {
+    height: 47px;
+  }
+  .inputLabel {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .eyeIcon {
+    top: 42px;
+  }
+}

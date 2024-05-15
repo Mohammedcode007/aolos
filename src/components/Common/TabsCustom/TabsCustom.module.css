@@ -1,0 +1,38 @@
+/* TabsCustom.module.css */
+
+.tabsContainer {
+    width: 100%;
+  }
+  
+  .tabButtons {
+    display: flex;
+    justify-content: flex-start; /* Align tabs to the left */
+    margin-right: -20px; /* Compensate for negative margin on tabs */
+  }
+  
+  .tabButton {
+    padding: 10px 20px;
+    background-color: #eee;
+    border: none; /* Remove default button border */
+    cursor: pointer;
+    margin-right: 20px; /* Margin between tabs */
+  }
+  
+  .tabButton:last-child {
+    margin-right: 0; /* Remove margin for the last tab */
+  }
+  
+  .activeTab {
+    background-color: transparent; /* Remove background color for active tab */
+    border-bottom: 2px solid #6276E5; /* Add bottom border for active tab */
+  }
+  
+  .tabContent {
+    /* margin-top: 20px; */
+  }
+  
+  .tabPane {
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
