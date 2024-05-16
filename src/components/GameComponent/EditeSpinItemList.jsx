@@ -3,6 +3,8 @@ import ColorPicker from "../Common/ColorPicker";
 import { Uploader } from "uploader";
 import { UploadButton } from "react-uploader";
 import { IconImage } from "../../components/icons/Icons";
+import { Form } from "react-bootstrap";
+
 const EditeSpinItemList = ({
   title,
   color,
@@ -17,7 +19,8 @@ const EditeSpinItemList = ({
   isImagePicker,
   handleChangebackground,
   setSelectedImagespinner,
-  setSelectedImageCover
+  setSelectedImageCover,
+  isspinNumber,
 }) => {
   const uploader = Uploader({
     apiKey: "free",
@@ -64,16 +67,14 @@ const EditeSpinItemList = ({
               uploader={uploader}
               options={optionsImage}
               onComplete={(files) => {
-                if (title === 'Spinner') {
-                  setSelectedImagespinner(files.map((x) => x.fileUrl).join("\n"));
-                } else if (title === 'Background') {
+                if (title === "Spinner") {
+                  setSelectedImagespinner(
+                    files.map((x) => x.fileUrl).join("\n")
+                  );
+                } else if (title === "Background") {
                   setSelectedImageCover(files.map((x) => x.fileUrl).join("\n"));
-
                 }
               }}
-              
-               
-              
             >
               {({ onClick }) => (
                 <div onClick={onClick}>
@@ -82,6 +83,9 @@ const EditeSpinItemList = ({
               )}
             </UploadButton>
           </div>
+        )}
+        {isspinNumber && (
+          <Form.Control type="number" placeholder="Enter number" />
         )}
       </div>
     </div>

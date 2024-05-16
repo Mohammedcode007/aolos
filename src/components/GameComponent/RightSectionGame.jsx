@@ -1,9 +1,8 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import styles from "../../global.module.css";
 import { HForm, Mobile, FullScreen, PcScreen } from "../icons/Icons";
 import WheelComponent from "../../components/Common/WheelComponent";
-
 
 const RightSectionGame = ({
   selected,
@@ -24,9 +23,8 @@ const RightSectionGame = ({
   handleTabClick,
   selectedOptionDrop,
 }) => {
-  const [winner,setWinner] =useState('winner')
+  const [winner, setWinner] = useState("winner");
   const segments = [
-
     "better luck next time",
     "won 70",
     "won 10",
@@ -47,7 +45,7 @@ const RightSectionGame = ({
     "#FF9000",
   ];
   const onFinished = (winner) => {
-    setWinner(winner)
+    setWinner(winner);
   };
   return (
     <div
@@ -167,8 +165,6 @@ const RightSectionGame = ({
                       fontFamily="Arial"
                       primaryColoraround={selectedColorBorder}
                       primaryImage={selectedImagespinner}
-                     
-                      
                     />
                     <p>{winner}</p>
                   </div>
@@ -221,7 +217,6 @@ const RightSectionGame = ({
                       "[Description]"
                     )}
                   </div>
-             
                 </div>
               </div>
             </div>

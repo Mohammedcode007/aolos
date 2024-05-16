@@ -21,7 +21,6 @@ const WheelComponent = ({
   width = 100,
   height = 100,
 }) => {
-  
   let currentSegment = "";
   let isStarted = false;
   const [isFinished, setFinished] = useState(false);
@@ -96,7 +95,7 @@ const WheelComponent = ({
       if (winningSegment) {
         if (currentSegment === winningSegment && frames > segments.length) {
           progress = duration / upTime;
-          angleDelta  = 
+          angleDelta =
             maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
           progress = 1;
         } else {
@@ -125,7 +124,7 @@ const WheelComponent = ({
     if (finished) {
       setFinished(true);
       onFinished(currentSegment);
-      
+
       clearInterval(timerHandle);
       timerHandle = 0;
       angleDelta = 0;
@@ -149,7 +148,7 @@ const WheelComponent = ({
     const value = segments[key];
     ctx.save();
     ctx.beginPath();
-    
+
     ctx.moveTo(centerX, centerY);
     ctx.arc(centerX, centerY, size, lastAngle, angle, false);
     ctx.lineTo(centerX, centerY);
@@ -186,7 +185,7 @@ const WheelComponent = ({
     ctx.beginPath();
     ctx.arc(centerX, centerY, 40, 0, PI2, false);
     ctx.closePath();
-    if (primaryImage ) {
+    if (primaryImage) {
       ctx.save();
       ctx.clip();
       ctx.drawImage(img, centerX - 40, centerY - 40, 80, 80);
@@ -237,9 +236,10 @@ const WheelComponent = ({
       ctx.lineTo(centerX - 10, centerY - 40);
       ctx.lineTo(centerX, centerY - 60);
     }
+
     ctx.closePath();
     ctx.fill();
-  
+
     const change = angleCurrent + Math.PI / 2;
     let i =
       segments.length -

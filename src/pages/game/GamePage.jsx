@@ -51,7 +51,7 @@ const GamePage = () => {
 
   const [isMobileScreen, setIsMobileScreen] = useState(false);
   const [isMobileScreenTwo, setIsMobileScreenTwo] = useState(false);
-  const [selectedOptionDrop, setSelectedOptionDrop] = useState("");
+  const [selectedOptionDrop, setSelectedOptionDrop] = useState("top");
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [displayColorPickerBorder, setDisplayColorPickerborder] =
     useState(false);
@@ -325,9 +325,13 @@ const GamePage = () => {
                     handleChangebackground={handleChangebackground}
                     color={selectedColor}
                     setColor={setColor}
-                    
                     setSelectedImageCover={setSelectedImageCover}
-
+                  />
+                </div>
+                <div className="m-1 mb-3">
+                  <EditeSpinItemList
+                    title="Number of Spins"
+                    isspinNumber={true}
                   />
                 </div>
               </div>
@@ -342,7 +346,6 @@ const GamePage = () => {
           activeTab={activeTab}
           selectedColor={selectedColor}
           selectedImageCover={selectedImageCover}
-
           selectedImagespinner={selectedImagespinner}
           valueAlignPar={valueAlignPar}
           underline={underline}
