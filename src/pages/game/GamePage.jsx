@@ -4,6 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import { IMAGES } from "../../assets/images/Images";
 import Navbar from "../../components/Common/Navebar/Navbar";
 import EditeSpinItemList from "../../components/GameComponent/EditeSpinItemList";
+import { generateRandomColor } from "../../utils/Functions/Functions";
 import ReactQuillCommon from "../../components/Common/ReactQuillCommon/ReactQuillCommon";
 import {
   IconPaintbrush,
@@ -16,15 +17,44 @@ import { useNavigate } from "react-router-dom";
 import { Done, Loader } from "../../components/Common/Loader/Loader";
 import { FieldPopupPaint } from "../../components/entryComponent/FieldPopupPaint";
 import RightSectionGame from "../../components/GameComponent/RightSectionGame";
+import TableUser from "../../components/GameComponent/TableUser";
+
 import InputTags from "../../components/Common/InputTags";
 
 const GamePage = () => {
+
+  const [newCol1, setNewCol1] = useState("");
+
   const [underline, setUnderline] = useState({ p: false, h: false });
-  const [selected, setSelected] = useState([
-    "better luck next time",
-    "won 70",
-    "won 10",
-  ]);
+  const [selected, setSelected] = useState([]);
+  const createInitialDataRow = (item) => ({
+    col1: item,
+    col2: 0,
+    col3: 0,
+    col4: "No Win",
+    wheelColor: "#FFFFFF",
+    textColor: "#000000",
+  });
+
+  const initialDataRows = selected.map(createInitialDataRow);
+
+  const [data, setData] = useState(initialDataRows);
+  useEffect(() => {
+    if (selected.length > 0) {
+      const lastItem = selected[selected.length - 1];
+      const newRow = {
+        col1: lastItem,
+        col2: 0,
+        col3: 0,
+        col4: "No Win",
+        wheelColor: generateRandomColor(),
+        textColor: "white",
+      };
+      setData([...data, newRow]);
+      setNewCol1("");
+    }
+  }, [selected]);
+
   const [color, setColor] = useState("#ff0000");
 
   const [loading, setLoading] = useState(undefined);
@@ -51,7 +81,7 @@ const GamePage = () => {
 
   const [isMobileScreen, setIsMobileScreen] = useState(false);
   const [isMobileScreenTwo, setIsMobileScreenTwo] = useState(false);
-  const [selectedOptionDrop, setSelectedOptionDrop] = useState("top");
+  const [selectedOptionDrop, setSelectedOptionDrop] = useState("");
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [displayColorPickerBorder, setDisplayColorPickerborder] =
     useState(false);
@@ -329,9 +359,12 @@ const GamePage = () => {
                   />
                 </div>
                 <div className="m-1 mb-3">
-                  <EditeSpinItemList
-                    title="Number of Spins"
-                    isspinNumber={true}
+                  <TableUser
+                    initialData={selected}
+                    data={data}
+                    setData={setData}
+                    setNewCol1={setNewCol1}
+                    newCol1={newCol1}
                   />
                 </div>
               </div>
@@ -356,7 +389,7 @@ const GamePage = () => {
           setvalueParg={setvalueParg}
           setvalueHeading={setvalueHeading}
           handleTabClick={handleTabClick}
-          selected={selected}
+          selected={data}
           selectedColorBorder={selectedColorBorder}
           selectedColorSpinner={selectedColorSpinner}
           selectedOptionDrop={selectedOptionDrop}

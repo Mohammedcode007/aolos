@@ -1,0 +1,51 @@
+export const initialData = [
+    {
+      col1: "Data 1-1",
+      col2: 10,
+      col3: 20,
+      col4: "Win",
+      wheelColor: "#FFFFFF",
+      textColor: "#000000",
+    },
+    {
+      col1: "Data 2-1",
+      col2: 40,
+      col3: 50,
+      col4: "No Win",
+      wheelColor: "#FFFFFF",
+      textColor: "#000000",
+    },
+    {
+      col1: "Data 3-1",
+      col2: 70,
+      col3: 80,
+      col4: "Win",
+      wheelColor: "#FFFFFF",
+      textColor: "#000000",
+    },
+    {
+      col1: "Data 4-1",
+      col2: 100,
+      col3: 110,
+      col4: "No Win",
+      wheelColor: "#FFFFFF",
+      textColor: "#000000",
+    },
+    {
+      col1: "Data 5-1",
+      col2: 130,
+      col3: 140,
+      col4: "Win",
+      wheelColor: "#FFFFFF",
+      textColor: "#000000",
+    },
+    {
+      col1: "Data 6-1",
+      col2: 160,
+      col3: 170,
+      col4: "No Win",
+      wheelColor: "#FFFFFF",
+      textColor: "#000000",
+    },
+  ];
+  export const dropdownOptions = ["Win", "No Win"];

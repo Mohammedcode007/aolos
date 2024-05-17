@@ -95,7 +95,7 @@ const WheelComponent = ({
       if (winningSegment) {
         if (currentSegment === winningSegment && frames > segments.length) {
           progress = duration / upTime;
-          angleDelta =
+          angleDelta  = 
             maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
           progress = 1;
         } else {
@@ -124,7 +124,7 @@ const WheelComponent = ({
     if (finished) {
       setFinished(true);
       onFinished(currentSegment);
-
+      
       clearInterval(timerHandle);
       timerHandle = 0;
       angleDelta = 0;
@@ -145,21 +145,21 @@ const WheelComponent = ({
 
   const drawSegment = (key, lastAngle, angle) => {
     const ctx = canvasContext;
-    const value = segments[key];
+    const value = segments[key]?.col1;
     ctx.save();
     ctx.beginPath();
-
+    
     ctx.moveTo(centerX, centerY);
     ctx.arc(centerX, centerY, size, lastAngle, angle, false);
     ctx.lineTo(centerX, centerY);
     ctx.closePath();
-    ctx.fillStyle = segColors[key];
+    ctx.fillStyle = segments[key]?.wheelColor;
     ctx.fill();
     ctx.stroke();
     ctx.save();
     ctx.translate(centerX, centerY);
     ctx.rotate((lastAngle + angle) / 2);
-    ctx.fillStyle = contrastColor || "white";
+    ctx.fillStyle = segments[key]?.textColor;
     ctx.font = "bold 1em " + fontFamily;
     ctx.fillText(value.substr(0, 21), size / 2 + 20, 0);
     ctx.restore();
@@ -185,7 +185,7 @@ const WheelComponent = ({
     ctx.beginPath();
     ctx.arc(centerX, centerY, 40, 0, PI2, false);
     ctx.closePath();
-    if (primaryImage) {
+    if (primaryImage ) {
       ctx.save();
       ctx.clip();
       ctx.drawImage(img, centerX - 40, centerY - 40, 80, 80);
@@ -236,10 +236,9 @@ const WheelComponent = ({
       ctx.lineTo(centerX - 10, centerY - 40);
       ctx.lineTo(centerX, centerY - 60);
     }
-
     ctx.closePath();
     ctx.fill();
-
+  
     const change = angleCurrent + Math.PI / 2;
     let i =
       segments.length -
@@ -250,7 +249,7 @@ const WheelComponent = ({
     ctx.textBaseline = "middle";
     ctx.fillStyle = "transparent";
     ctx.font = "bold 1.5em " + fontFamily;
-    currentSegment = segments[i];
+    currentSegment = segments[i]?.col1;
     isStarted &&
       ctx.fillText(currentSegment, centerX + 10, centerY + size + 50);
   };
