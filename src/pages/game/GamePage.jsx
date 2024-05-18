@@ -22,7 +22,6 @@ import TableUser from "../../components/GameComponent/TableUser";
 import InputTags from "../../components/Common/InputTags";
 
 const GamePage = () => {
-
   const [newCol1, setNewCol1] = useState("");
 
   const [underline, setUnderline] = useState({ p: false, h: false });
@@ -56,7 +55,8 @@ const GamePage = () => {
   }, [selected]);
 
   const [color, setColor] = useState("#ff0000");
-
+  const [isNumberSpinner, setisNumberSpinner] = useState(null);
+  console.log(isNumberSpinner, "isNumberSpinner");
   const [loading, setLoading] = useState(undefined);
   const [done, setDone] = useState(undefined);
   const [contentWidth, setcontentWidth] = useState("100%");
@@ -358,15 +358,26 @@ const GamePage = () => {
                     setSelectedImageCover={setSelectedImageCover}
                   />
                 </div>
-                <div className="m-1 mb-3">
-                  <TableUser
-                    initialData={selected}
-                    data={data}
-                    setData={setData}
-                    setNewCol1={setNewCol1}
-                    newCol1={newCol1}
+
+                <div className="m-1 ">
+                  <EditeSpinItemList
+                    title="number"
+                    numSpinner={true}
+                    setisNumberSpinner={setisNumberSpinner}
+                    isNumberSpinner={isNumberSpinner}
                   />
                 </div>
+                {isNumberSpinner && (
+                  <div className="m-1 mb-3">
+                    <TableUser
+                      initialData={selected}
+                      data={data}
+                      setData={setData}
+                      setNewCol1={setNewCol1}
+                      newCol1={newCol1}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -393,6 +404,7 @@ const GamePage = () => {
           selectedColorBorder={selectedColorBorder}
           selectedColorSpinner={selectedColorSpinner}
           selectedOptionDrop={selectedOptionDrop}
+          isNumberSpinner={isNumberSpinner}
         />
 
         {loading === true && <Loader />}

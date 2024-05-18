@@ -12,14 +12,14 @@ const TableUser = ({ data, setData, newCol1, setNewCol1 }) => {
     const newData = [...data];
     newData[index][field] = value;
 
-    if (field === 'col2') {
+    if (field === "col2") {
       // Calculate the new total
-      const numbers = newData.map(row => Number(row.col2));
+      const numbers = newData.map((row) => Number(row.col2));
       const newTotal = numbers.reduce((acc, num) => acc + num, 0);
 
       // Check if the new total exceeds 100
       if (newTotal > 100) {
-        alert('The total of probabilities cannot exceed 100.');
+        alert("The total of probabilities cannot exceed 100.");
         return; // Do not update the state if the total exceeds 100
       }
 

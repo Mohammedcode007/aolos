@@ -8,6 +8,9 @@ const EditeSpinItemList = ({
   color,
   isDropdown,
   options,
+  numSpinner,
+  setisNumberSpinner,
+  isNumberSpinner,
   selectedColor,
   onSelect,
   setDisplayColorPicker,
@@ -17,14 +20,16 @@ const EditeSpinItemList = ({
   isImagePicker,
   handleChangebackground,
   setSelectedImagespinner,
-  setSelectedImageCover
+  setSelectedImageCover,
 }) => {
   const uploader = Uploader({
     apiKey: "free",
   });
 
   const optionsImage = { multi: false };
-
+  const onChangeNumSpinner = (e) => {
+    setisNumberSpinner(e.target.value);
+  };
   return (
     <div className="d-flex justify-content-between w-100 align-items-center">
       <p className="fw-bold m-0">{title}</p>
@@ -64,16 +69,14 @@ const EditeSpinItemList = ({
               uploader={uploader}
               options={optionsImage}
               onComplete={(files) => {
-                if (title === 'Spinner') {
-                  setSelectedImagespinner(files.map((x) => x.fileUrl).join("\n"));
-                } else if (title === 'Background') {
+                if (title === "Spinner") {
+                  setSelectedImagespinner(
+                    files.map((x) => x.fileUrl).join("\n")
+                  );
+                } else if (title === "Background") {
                   setSelectedImageCover(files.map((x) => x.fileUrl).join("\n"));
-
                 }
               }}
-              
-               
-              
             >
               {({ onClick }) => (
                 <div onClick={onClick}>
@@ -82,6 +85,15 @@ const EditeSpinItemList = ({
               )}
             </UploadButton>
           </div>
+        )}
+
+        {numSpinner && (
+          <input
+            type="number"
+            value={isNumberSpinner}
+            onChange={(e) => onChangeNumSpinner(e)}
+            className="form-control form-control-sm"
+          />
         )}
       </div>
     </div>

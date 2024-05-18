@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const WheelComponent = ({
   segments,
+  isNumberSpinner,
   segColors,
   winningSegment,
   onFinished,
@@ -95,7 +96,7 @@ const WheelComponent = ({
       if (winningSegment) {
         if (currentSegment === winningSegment && frames > segments.length) {
           progress = duration / upTime;
-          angleDelta  = 
+          angleDelta =
             maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
           progress = 1;
         } else {
@@ -124,7 +125,7 @@ const WheelComponent = ({
     if (finished) {
       setFinished(true);
       onFinished(currentSegment);
-      
+
       clearInterval(timerHandle);
       timerHandle = 0;
       angleDelta = 0;
@@ -148,7 +149,7 @@ const WheelComponent = ({
     const value = segments[key]?.col1;
     ctx.save();
     ctx.beginPath();
-    
+
     ctx.moveTo(centerX, centerY);
     ctx.arc(centerX, centerY, size, lastAngle, angle, false);
     ctx.lineTo(centerX, centerY);
@@ -185,7 +186,7 @@ const WheelComponent = ({
     ctx.beginPath();
     ctx.arc(centerX, centerY, 40, 0, PI2, false);
     ctx.closePath();
-    if (primaryImage ) {
+    if (primaryImage) {
       ctx.save();
       ctx.clip();
       ctx.drawImage(img, centerX - 40, centerY - 40, 80, 80);
@@ -238,7 +239,7 @@ const WheelComponent = ({
     }
     ctx.closePath();
     ctx.fill();
-  
+
     const change = angleCurrent + Math.PI / 2;
     let i =
       segments.length -

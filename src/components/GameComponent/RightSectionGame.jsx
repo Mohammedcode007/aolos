@@ -1,13 +1,13 @@
-import React ,{useEffect, useState}from "react";
+import React, { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import styles from "../../global.module.css";
 import { HForm, Mobile, FullScreen, PcScreen } from "../icons/Icons";
 import WheelComponent from "../../components/Common/WheelComponent";
 
-
 const RightSectionGame = ({
   selected,
   fullScreen,
+  isNumberSpinner,
   isMobileScreen,
   contentWidth,
   activeTab,
@@ -24,19 +24,17 @@ const RightSectionGame = ({
   handleTabClick,
   selectedOptionDrop,
 }) => {
-  const [winner,setWinner] =useState('winner')
-  const [list,setList] =useState([])
+  const [winner, setWinner] = useState("winner");
+  const [list, setList] = useState([]);
 
-  useEffect(()=>{
-
-    if(selected){
-      const listed = [...selected]
-    const newArray =  listed.sort((a, b) => b.col2 - a.col2);
-    setList(newArray)
-
+  useEffect(() => {
+    if (selected) {
+      const listed = [...selected];
+      const newArray = listed.sort((a, b) => b.col2 - a.col2);
+      setList(newArray);
     }
-  },[selected])
-console.log(selected,'kkk');
+  }, [selected]);
+  console.log(selected, "kkk");
   const segColors = [
     "#EE4040",
     "#F0CF50",
@@ -48,7 +46,7 @@ console.log(selected,'kkk');
     "#FF9000",
   ];
   const onFinished = (winner) => {
-    setWinner(winner)
+    setWinner(winner);
   };
   return (
     <div
@@ -152,6 +150,7 @@ console.log(selected,'kkk');
                   </div>
                   <div>
                     <WheelComponent
+                      isNumberSpinner={isNumberSpinner}
                       segments={list}
                       selectedOptionDrop={selectedOptionDrop}
                       segColors={segColors}
@@ -168,8 +167,6 @@ console.log(selected,'kkk');
                       fontFamily="Arial"
                       primaryColoraround={selectedColorBorder}
                       primaryImage={selectedImagespinner}
-                     
-                      
                     />
                     <p>{winner}</p>
                   </div>
@@ -222,7 +219,6 @@ console.log(selected,'kkk');
                       "[Description]"
                     )}
                   </div>
-             
                 </div>
               </div>
             </div>
