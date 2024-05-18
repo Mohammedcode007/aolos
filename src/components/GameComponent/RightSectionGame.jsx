@@ -44,6 +44,8 @@ const RightSectionGame = ({
     "#EC3F3F",
     "#FF9000",
   ];
+
+
   const onFinished = (winner) => {
     setWinner(winner);
   };
@@ -166,6 +168,7 @@ const RightSectionGame = ({
                       fontFamily="Arial"
                       primaryColoraround={selectedColorBorder}
                       primaryImage={selectedImagespinner}
+                      count={isNumberSpinner }
                     />
                     <p style={{ color: "white" }}>
                       {list[0]?.col4 + "  " + winner}

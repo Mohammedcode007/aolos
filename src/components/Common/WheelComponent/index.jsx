@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const WheelComponent = ({
   segments,
@@ -9,7 +9,7 @@ const WheelComponent = ({
   onRotate,
   onRotatefinish,
   primaryColor,
-  primaryImage, // Add a prop for the image URL
+  primaryImage,
   selectedOptionDrop,
   primaryColoraround,
   contrastColor,
@@ -21,8 +21,30 @@ const WheelComponent = ({
   fontFamily = "proxima-nova",
   width = 100,
   height = 100,
+  count,
 }) => {
-  
+  const [check, setcheck] = useState(false);
+  const [number, setNumber] = useState(false);
+  const numberRef = useRef(number);
+  const [countPlyay, setcountPlyay] = useState(1);
+
+  useEffect(() => {
+    if (check) {
+
+      setcountPlyay((prevCount) => {
+        if (prevCount >= count) {
+          setNumber(true);
+          numberRef.current = true; 
+          return prevCount; 
+        }
+
+        return prevCount + 1;
+      });
+    }
+  }, [check]);
+
+
+
   let currentSegment = "";
   let isStarted = false;
   const [isFinished, setFinished] = useState(false);
@@ -31,7 +53,7 @@ const WheelComponent = ({
   let angleCurrent = 0;
   let angleDelta = 0;
   let canvasContext = null;
-  let maxSpeed = Math.PI / `${segments.length}`;
+  let maxSpeed = Math.PI / segments.length;
   const upTime = segments.length * upDuration;
   const downTime = segments.length * downDuration;
   let spinStart = 0;
@@ -75,6 +97,13 @@ const WheelComponent = ({
   };
 
   const spin = () => {
+    setcheck(false);
+
+    if (numberRef.current) {
+      console.log("1111111111");
+      return;
+    }
+
     isStarted = true;
     if (timerHandle === 0) {
       spinStart = new Date().getTime();
@@ -118,7 +147,10 @@ const WheelComponent = ({
             maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
         }
       }
-      if (progress >= 1) finished = true;
+      if (progress >= 1) {
+        finished = true;
+        setcheck(true);
+      }
     }
 
     angleCurrent += angleDelta;
@@ -126,7 +158,6 @@ const WheelComponent = ({
     if (finished) {
       setFinished(true);
       onFinished(currentSegment);
-
       clearInterval(timerHandle);
       timerHandle = 0;
       angleDelta = 0;
@@ -169,7 +200,7 @@ const WheelComponent = ({
 
   const drawWheel = () => {
     const ctx = canvasContext;
-    let lastAngle = angleCurrent + 40;
+    let lastAngle = angleCurrent;
     const len = segments.length;
     const PI2 = Math.PI * 2;
     ctx.lineWidth = 1;
@@ -178,8 +209,8 @@ const WheelComponent = ({
     ctx.textAlign = "center";
     ctx.font = "1em " + fontFamily;
     for (let i = 1; i <= len; i++) {
-      const angle = PI2 * (i / len) + angleCurrent + 40; // +40
-      drawSegment(i - 1, lastAngle, angle); 
+      const angle = PI2 * (i / len) + angleCurrent; // +40
+      drawSegment(i - 1, lastAngle, angle);
       lastAngle = angle;
     }
 
