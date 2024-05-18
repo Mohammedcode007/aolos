@@ -22,7 +22,6 @@ export const ImagePopup = ({
     const fileInputRef = useRef(null);
     const [rotationAngle, setRotationAngle] = useState(0);
     const updateImageValue = (idToUpdate, newValue) => {
-      console.log(idToUpdate, "newValue");
   
       setImageCounter((prevArray) => {
         return prevArray.map((item) => {
@@ -43,7 +42,6 @@ export const ImagePopup = ({
       setSelectedImage(imageUrl);
       updateImageValue(valueImage.id, imageUrl);
   
-      console.log("Selected file:", file);
     };
   
     const handleRotateLeft = () => {

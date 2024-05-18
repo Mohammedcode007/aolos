@@ -56,7 +56,6 @@ const GamePage = () => {
 
   const [color, setColor] = useState("#ff0000");
   const [isNumberSpinner, setisNumberSpinner] = useState(null);
-  console.log(isNumberSpinner, "isNumberSpinner");
   const [loading, setLoading] = useState(undefined);
   const [done, setDone] = useState(undefined);
   const [contentWidth, setcontentWidth] = useState("100%");
@@ -359,7 +358,7 @@ const GamePage = () => {
                   />
                 </div>
 
-                <div className="m-1 ">
+                <div className="m-1 mb-3 ">
                   <EditeSpinItemList
                     title="number"
                     numSpinner={true}
@@ -367,7 +366,7 @@ const GamePage = () => {
                     isNumberSpinner={isNumberSpinner}
                   />
                 </div>
-                {isNumberSpinner && (
+                {isNumberSpinner && data.length > 0  && (
                   <div className="m-1 mb-3">
                     <TableUser
                       initialData={selected}

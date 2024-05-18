@@ -31,7 +31,6 @@ const Test = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
   const [selectedColorField, setSelectedColorField] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
-console.log(data,'777');
   const handleInputChange = (index, field, value) => {
     const newData = [...data];
     newData[index][field] = value;

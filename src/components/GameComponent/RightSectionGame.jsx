@@ -34,7 +34,6 @@ const RightSectionGame = ({
       setList(newArray);
     }
   }, [selected]);
-  console.log(selected, "kkk");
   const segColors = [
     "#EE4040",
     "#F0CF50",
@@ -168,7 +167,9 @@ const RightSectionGame = ({
                       primaryColoraround={selectedColorBorder}
                       primaryImage={selectedImagespinner}
                     />
-                    <p>{winner}</p>
+                    <p style={{ color: "white" }}>
+                      {list[0]?.col4 + "  " + winner}
+                    </p>
                   </div>
                 </div>
               </div>

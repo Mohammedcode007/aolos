@@ -30,16 +30,13 @@ const TableUser = ({ data, setData, newCol1, setNewCol1 }) => {
   };
 
   // const handleInputChange = (index, field, value) => {
-  //   console.log(index,'index');
-  //   console.log(field,'field');
-  //   console.log(value,'value');
+ 
   //   const newData = [...data];
   //   if (field === 'col2'){
   //     const num = newData.map((i)=>i.col2)
   //     const numbers = num.map(str => Number(str));
   //     const total = numbers.reduce((acc, num) => acc + num, 0);
 
-  //     console.log(num,'num');
   //   }
 
   //   newData[index][field] = value;

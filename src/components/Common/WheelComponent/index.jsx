@@ -22,6 +22,7 @@ const WheelComponent = ({
   width = 100,
   height = 100,
 }) => {
+  
   let currentSegment = "";
   let isStarted = false;
   const [isFinished, setFinished] = useState(false);
@@ -168,7 +169,7 @@ const WheelComponent = ({
 
   const drawWheel = () => {
     const ctx = canvasContext;
-    let lastAngle = angleCurrent;
+    let lastAngle = angleCurrent + 40;
     const len = segments.length;
     const PI2 = Math.PI * 2;
     ctx.lineWidth = 1;
@@ -177,8 +178,8 @@ const WheelComponent = ({
     ctx.textAlign = "center";
     ctx.font = "1em " + fontFamily;
     for (let i = 1; i <= len; i++) {
-      const angle = PI2 * (i / len) + angleCurrent; // +40
-      drawSegment(i - 1, lastAngle, angle);
+      const angle = PI2 * (i / len) + angleCurrent + 40; // +40
+      drawSegment(i - 1, lastAngle, angle); 
       lastAngle = angle;
     }
 

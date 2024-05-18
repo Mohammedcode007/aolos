@@ -77,7 +77,6 @@ const FieldPopup = ({ field }) => {
 
 const RedirectPage = () => {
   const [selectedOption, setSelectedOption] = useState(location.pathname);
-  console.log(selectedOption, "11111111");
   const navigate = useNavigate(); // Initialize useHistory
   const handleNavigation = (route) => {
     setSelectedOption(route);

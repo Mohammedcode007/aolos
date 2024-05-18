@@ -73,7 +73,6 @@ const EntryPage = () => {
 
   const [isMobileScreen, setIsMobileScreen] = useState(false);
   const [isMobileScreenTwo, setIsMobileScreenTwo] = useState(false);
-  console.log(isMobileScreen, isMobileScreenTwo);
   const addParagraph = () => {
     setParagraphCounter((prevArray) => [
       ...prevArray,
