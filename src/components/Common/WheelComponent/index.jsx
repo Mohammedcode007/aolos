@@ -23,6 +23,16 @@ const WheelComponent = ({
   height = 100,
   count,
 }) => {
+  const [copiedValue, setCopiedValue] = useState(selectedOptionDrop);
+  const prevOriginalValue = useRef(selectedOptionDrop);
+
+  useEffect(() => {
+    if (prevOriginalValue.current !== selectedOptionDrop) {
+      setCopiedValue(selectedOptionDrop);
+      prevOriginalValue.current = selectedOptionDrop;
+    }
+  }, [selectedOptionDrop]);
+  console.log(prevOriginalValue, "copiedValue");
   const [check, setcheck] = useState(false);
   const [number, setNumber] = useState(false);
   const numberRef = useRef(number);
@@ -30,20 +40,17 @@ const WheelComponent = ({
 
   useEffect(() => {
     if (check) {
-
       setcountPlyay((prevCount) => {
         if (prevCount >= count) {
           setNumber(true);
-          numberRef.current = true; 
-          return prevCount; 
+          numberRef.current = true;
+          return prevCount;
         }
 
         return prevCount + 1;
       });
     }
   }, [check]);
-
-
 
   let currentSegment = "";
   let isStarted = false;
@@ -76,7 +83,7 @@ const WheelComponent = ({
     setTimeout(() => {
       window.scrollTo(0, 1);
     }, 0);
-  }, [segments, contrastColor, primaryColor, primaryImage, selectedOptionDrop]);
+  }, [segments, contrastColor, primaryColor, primaryImage, copiedValue]);
 
   const wheelInit = () => {
     initCanvas();
@@ -199,8 +206,19 @@ const WheelComponent = ({
   };
 
   const drawWheel = () => {
+    let angleAdjustment = 0;
+    if (prevOriginalValue.current === "left") {
+      angleAdjustment = -20;
+    } else if (prevOriginalValue.current === "right") {
+      angleAdjustment = 40;
+    }else if (prevOriginalValue.current === "top") {
+      angleAdjustment = 0;
+    }else if (prevOriginalValue.current === "bottom") {
+      angleAdjustment = 60;
+    }
+
     const ctx = canvasContext;
-    let lastAngle = angleCurrent;
+    let lastAngle = angleCurrent + angleAdjustment;
     const len = segments.length;
     const PI2 = Math.PI * 2;
     ctx.lineWidth = 1;
@@ -209,7 +227,7 @@ const WheelComponent = ({
     ctx.textAlign = "center";
     ctx.font = "1em " + fontFamily;
     for (let i = 1; i <= len; i++) {
-      const angle = PI2 * (i / len) + angleCurrent; // +40
+      const angle = PI2 * (i / len) + angleCurrent + angleAdjustment; // +40
       drawSegment(i - 1, lastAngle, angle);
       lastAngle = angle;
     }
@@ -251,15 +269,15 @@ const WheelComponent = ({
     ctx.fileStyle = contrastColor || "red";
 
     ctx.beginPath();
-    if (selectedOptionDrop === "left") {
+    if (prevOriginalValue.current === "left") {
       ctx.moveTo(centerX - 40, centerY + 10); // Left position
       ctx.lineTo(centerX - 40, centerY - 10);
       ctx.lineTo(centerX - 60, centerY);
-    } else if (selectedOptionDrop === "right") {
+    } else if (prevOriginalValue.current === "right") {
       ctx.moveTo(centerX + 40, centerY + 10); // Right position
       ctx.lineTo(centerX + 40, centerY - 10);
       ctx.lineTo(centerX + 60, centerY);
-    } else if (selectedOptionDrop === "bottom") {
+    } else if (prevOriginalValue.current === "bottom") {
       ctx.moveTo(centerX + 10, centerY + 40); // Bottom position
       ctx.lineTo(centerX - 10, centerY + 40);
       ctx.lineTo(centerX, centerY + 60);
