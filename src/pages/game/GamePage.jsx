@@ -330,6 +330,8 @@ const GamePage = () => {
                       { value: "left", label: "left" },
                       { value: "right", label: "right" },
                       { value: "bottom", label: "bottom" },
+                      { value: "center", label: "center" },
+
                     ]}
                     onSelect={handleSelect}
                   />

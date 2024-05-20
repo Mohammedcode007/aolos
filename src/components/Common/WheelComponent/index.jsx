@@ -23,6 +23,7 @@ const WheelComponent = ({
   height = 100,
   count,
 }) => {
+  console.log(winningSegment,'winningSegment');
   const [copiedValue, setCopiedValue] = useState(selectedOptionDrop);
   const prevOriginalValue = useRef(selectedOptionDrop);
 
@@ -211,9 +212,9 @@ const WheelComponent = ({
       angleAdjustment = -20;
     } else if (prevOriginalValue.current === "right") {
       angleAdjustment = 40;
-    }else if (prevOriginalValue.current === "top") {
+    } else if (prevOriginalValue.current === "top") {
       angleAdjustment = 0;
-    }else if (prevOriginalValue.current === "bottom") {
+    } else if (prevOriginalValue.current === "bottom") {
       angleAdjustment = 60;
     }
 
@@ -270,22 +271,63 @@ const WheelComponent = ({
 
     ctx.beginPath();
     if (prevOriginalValue.current === "left") {
-      ctx.moveTo(centerX - 40, centerY + 10); // Left position
-      ctx.lineTo(centerX - 40, centerY - 10);
-      ctx.lineTo(centerX - 60, centerY);
+      const needleLength = 20; // Length of the needle
+      const needleWidth = 10; // Width of the needle base
+
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = contrastColor || "red";
+      ctx.fillStyle = contrastColor || "red";
+
+      ctx.beginPath();
+      // Position needle on the left edge of the wheel pointing inward
+      ctx.moveTo(centerX - size, centerY - needleWidth / 2); // Top point of the needle
+      ctx.lineTo(centerX - size, centerY + needleWidth / 2); // Bottom point of the needle
+      ctx.lineTo(centerX - size + needleLength, centerY);
     } else if (prevOriginalValue.current === "right") {
-      ctx.moveTo(centerX + 40, centerY + 10); // Right position
-      ctx.lineTo(centerX + 40, centerY - 10);
-      ctx.lineTo(centerX + 60, centerY);
+      const needleLength = 20; // Length of the needle
+      const needleWidth = 10; // Width of the needle base
+
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = contrastColor || "red";
+      ctx.fillStyle = contrastColor || "red";
+
+      ctx.beginPath();
+      // Position needle on the right edge of the wheel pointing inward
+      ctx.moveTo(centerX + size, centerY - needleWidth / 2); // Top point of the needle
+      ctx.lineTo(centerX + size, centerY + needleWidth / 2); // Bottom point of the needle
+      ctx.lineTo(centerX + size - needleLength, centerY);
     } else if (prevOriginalValue.current === "bottom") {
-      ctx.moveTo(centerX + 10, centerY + 40); // Bottom position
-      ctx.lineTo(centerX - 10, centerY + 40);
-      ctx.lineTo(centerX, centerY + 60);
-    } else {
+      const needleLength = 20; // Length of the needle
+      const needleWidth = 10; // Width of the needle base
+
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = contrastColor || "red";
+      ctx.fillStyle = contrastColor || "red";
+
+      ctx.beginPath();
+      // Position needle on the bottom edge of the wheel pointing inward
+      ctx.moveTo(centerX - needleWidth / 2, centerY + size); // Left point of the needle
+      ctx.lineTo(centerX + needleWidth / 2, centerY + size); // Right point of the needle
+      ctx.lineTo(centerX, centerY + size - needleLength);
+    } else if (prevOriginalValue.current === "center") {
+    
       // Default to top position
       ctx.moveTo(centerX + 10, centerY - 40);
       ctx.lineTo(centerX - 10, centerY - 40);
       ctx.lineTo(centerX, centerY - 60);
+    } else if (prevOriginalValue.current === "top") {
+      const needleLength = 20; // Length of the needle
+      const needleWidth = 10; // Width of the needle base
+
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = contrastColor || "red";
+      ctx.fillStyle = contrastColor || "red";
+
+      ctx.beginPath();
+      // Position needle on the top edge of the wheel pointing inward
+      ctx.moveTo(centerX - needleWidth / 2, centerY - size); // Left point of the needle
+      ctx.lineTo(centerX + needleWidth / 2, centerY - size); // Right point of the needle
+      ctx.lineTo(centerX, centerY - size + needleLength); // Tip of the needle pointing inward
     }
     ctx.closePath();
     ctx.fill();
